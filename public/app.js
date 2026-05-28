@@ -87,10 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mouse events
     sliderContainer.addEventListener('mousedown', (e) => {
       isDragging = true;
+      e.preventDefault();
       moveSlider(e.clientX);
     });
     window.addEventListener('mouseup', () => { isDragging = false; });
-    sliderContainer.addEventListener('mousemove', (e) => {
+    window.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       moveSlider(e.clientX);
     });
