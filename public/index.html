@@ -1,623 +1,726 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Residencia canina norte de Madrid | Shere Can · Thunder Bully</title>
-<meta name="description" content="Residencia canina y criadero de American Staffordshire Terrier y American Bully en Madrid. Manuel lleva desde 1990 cuidando perros como si fueran suyos. Llámanos.">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          bark: { 950: '#0e0b08', 900: '#1a1410', 800: '#241c14', 700: '#2e2419' },
-          brass: { DEFAULT: '#c4952a', dark: '#a67e20', light: '#d4a840' },
-        },
-        fontFamily: {
-          display: ['Oswald', 'sans-serif'],
-          body: ['Source Sans 3', 'sans-serif'],
-        }
-      }
-    }
-  }
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bark-950: #0e0b08;
-    --bark-900: #1a1410;
-    --bark-800: #241c14;
-    --brass: #c4952a;
-    --brass-dark: #a67e20;
-    --brass-light: #d4a840;
-    --text: #ede0cc;
-    --muted: #8a7460;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bark-900); color: var(--text); font-family: 'Source Sans 3', sans-serif; margin: 0; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(14,11,8,0.92);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(196,149,42,0.2);
-  }
-  .nav-inner {
-    max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
-    display: flex; align-items: center; justify-content: space-between; height: 68px;
-  }
-  .logo {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem; font-weight: 600; letter-spacing: 0.1em;
-    color: #fff; text-decoration: none;
-    display: flex; flex-direction: column; line-height: 1;
-  }
-  .logo-sub { font-size: 0.6rem; letter-spacing: 0.25em; color: var(--brass); font-weight: 400; margin-top: 2px; text-transform: uppercase; }
-  .nav-right { display: flex; align-items: center; gap: 1rem; }
-  .nav-phone { color: var(--muted); font-size: 0.88rem; text-decoration: none; font-weight: 600; transition: color 0.2s; }
-  .nav-phone:hover { color: var(--brass-light); }
-  .btn-primary {
-    background: var(--brass); color: var(--bark-950);
-    font-family: 'Oswald', sans-serif; font-weight: 600;
-    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.5rem 1.3rem; border-radius: 3px; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 2px 14px rgba(196,149,42,0.35);
-  }
-  .btn-primary:hover { background: var(--brass-light); transform: translateY(-1px); }
-  .btn-primary:active { transform: translateY(0); }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh; position: relative;
-    display: flex; align-items: center;
-    background: url('hero.webp') center 40% / cover no-repeat;
-    padding-top: 68px;
-  }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(110deg, rgba(14,11,8,0.88) 0%, rgba(26,20,16,0.78) 55%, rgba(36,28,20,0.55) 100%);
-  }
-  .hero-overlay::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 20% 70%, rgba(196,149,42,0.08) 0%, transparent 55%);
-  }
-  .hero-content {
-    position: relative; z-index: 2;
-    max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem;
-  }
-  .hero-since {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: rgba(196,149,42,0.12);
-    border: 1px solid rgba(196,149,42,0.3);
-    color: var(--brass-light);
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
-    padding: 0.32rem 0.85rem; border-radius: 2px; margin-bottom: 1.5rem;
-  }
-  .hero-since::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--brass); }
-  h1.hero-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(2.8rem, 7.5vw, 6rem);
-    line-height: 1; letter-spacing: 0.03em; text-transform: uppercase;
-    color: #fff; margin: 0 0 1.25rem; max-width: 680px; font-weight: 700;
-  }
-  h1.hero-title em { font-style: normal; color: var(--brass); }
-  .hero-sub {
-    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-    color: #a89880; line-height: 1.7; max-width: 480px;
-    margin-bottom: 2.5rem; font-weight: 300;
-  }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-  .btn-outline {
-    background: transparent; color: var(--text);
-    font-family: 'Source Sans 3', sans-serif; font-weight: 600;
-    font-size: 0.88rem; padding: 0.6rem 1.4rem;
-    border-radius: 3px; text-decoration: none;
-    border: 1px solid rgba(237,224,204,0.25);
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-outline:hover { border-color: var(--brass); color: var(--brass-light); }
-  .hero-stats {
-    display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap;
-  }
-  .stat-item { display: flex; flex-direction: column; gap: 0.15rem; }
-  .stat-num {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.6rem; color: var(--brass); line-height: 1; letter-spacing: 0.04em; font-weight: 600;
-  }
-  .stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
-
-  /* ── SECTION COMMONS ── */
-  section { padding: 5.5rem 1.5rem; }
-  .section-inner { max-width: 1200px; margin: 0 auto; }
-  .section-tag {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--brass); margin-bottom: 0.6rem;
-    display: flex; align-items: center; gap: 0.6rem;
-  }
-  .section-tag::before {
-    content: ''; display: inline-block; width: 20px; height: 1px;
-    background: var(--brass);
-  }
-  .section-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    color: #fff; margin: 0 0 0.9rem; font-weight: 700;
-  }
-  .section-desc { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 540px; font-weight: 300; }
-
-  /* ── SERVICIOS ── */
-  #servicios { background: var(--bark-950); }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem; margin-top: 3rem;
-  }
-  .service-card {
-    border-radius: 4px; overflow: hidden;
-    position: relative; min-height: 380px;
-    display: flex; flex-direction: column;
-    background: var(--bark-800);
-    border: 1px solid rgba(196,149,42,0.1);
-    transition: transform 0.25s, border-color 0.25s;
-  }
-  .service-card:hover { transform: translateY(-4px); border-color: rgba(196,149,42,0.35); }
-  .service-photo { width: 100%; height: 220px; object-fit: cover; display: block; filter: brightness(0.8) saturate(0.9); transition: filter 0.3s; }
-  .service-card:hover .service-photo { filter: brightness(0.95) saturate(1); }
-  .service-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
-  .service-icon {
-    width: 38px; height: 38px; border-radius: 4px;
-    background: rgba(196,149,42,0.12);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 0.85rem;
-  }
-  .service-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.35rem; letter-spacing: 0.06em; text-transform: uppercase;
-    color: #fff; margin: 0 0 0.5rem; font-weight: 600;
-  }
-  .service-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.65; flex: 1; font-weight: 300; }
-
-  /* ── RESEÑAS ── */
-  #resenas { background: var(--bark-900); overflow: hidden; }
-  .reviews-track-wrapper {
-    overflow: hidden; margin-top: 2.5rem;
-    mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
-  }
-  .reviews-track { display: flex; gap: 1.25rem; width: max-content; animation: scroll-r 50s linear infinite; }
-  .reviews-track:hover { animation-play-state: paused; }
-  @keyframes scroll-r { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .review-card {
-    background: var(--bark-800); border: 1px solid rgba(196,149,42,0.1);
-    border-radius: 4px; padding: 1.5rem; width: 300px; flex-shrink: 0;
-    transition: border-color 0.2s;
-  }
-  .review-card:hover { border-color: rgba(196,149,42,0.3); }
-  .stars { color: var(--brass); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
-  .reviewer-name { font-weight: 600; color: var(--text); font-size: 0.88rem; margin-bottom: 0.1rem; }
-  .review-source { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.7rem; letter-spacing: 0.04em; }
-  .review-text { color: #a89880; font-size: 0.85rem; line-height: 1.65; font-weight: 300; }
-
-  /* ── NOSOTROS ── */
-  #nosotros { background: var(--bark-950); }
-  .nosotros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; margin-top: 3rem; }
-  .nosotros-photo-wrap { position: relative; }
-  .nosotros-photo { width: 100%; border-radius: 4px; display: block; object-fit: cover; height: 500px; filter: brightness(0.85) saturate(0.9); }
-  .nosotros-photo-wrap::before {
-    content: ''; position: absolute; inset: -8px 8px 8px -8px;
-    border: 1px solid rgba(196,149,42,0.3); border-radius: 4px; z-index: -1;
-  }
-  .nosotros-content h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.6rem; letter-spacing: 0.06em; text-transform: uppercase;
-    color: #fff; margin: 0.5rem 0 1.25rem; line-height: 1; font-weight: 700;
-  }
-  .nosotros-content p { color: var(--muted); font-size: 0.95rem; line-height: 1.78; font-weight: 300; margin-bottom: 1rem; }
-  .nosotros-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-  .badge {
-    background: rgba(196,149,42,0.1); border: 1px solid rgba(196,149,42,0.22);
-    color: var(--brass-light); font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0.3rem 0.8rem; border-radius: 2px;
-  }
-
-  /* ── MAPA ── */
-  #mapa { background: var(--bark-900); padding: 5.5rem 1.5rem; }
-  .mapa-iframe {
-    width: 100%; height: 420px; border-radius: 4px; border: none; margin-top: 2.5rem;
-    filter: brightness(0.82) contrast(1.1) saturate(0.65);
-  }
-
-  /* ── CONTACTO ── */
-  #contacto { background: var(--bark-950); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
-  .contact-item {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1.2rem; background: var(--bark-800);
-    border-radius: 4px; border: 1px solid rgba(196,149,42,0.1);
-    text-decoration: none; color: inherit; margin-bottom: 1rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .contact-item:hover { border-color: rgba(196,149,42,0.3); transform: translateY(-2px); }
-  .contact-icon {
-    width: 42px; height: 42px; border-radius: 4px;
-    background: rgba(196,149,42,0.12);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .contact-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.15rem; }
-  .contact-value { font-size: 0.95rem; color: var(--text); font-weight: 600; }
-  .contact-cta {
-    background: linear-gradient(135deg, rgba(196,149,42,0.12) 0%, rgba(196,149,42,0.04) 100%);
-    border: 1px solid rgba(196,149,42,0.22); border-radius: 4px; padding: 2.5rem;
-  }
-  .contact-cta h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: #fff; margin: 0 0 0.7rem; font-weight: 700; line-height: 1;
-  }
-  .contact-cta p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.5rem; font-weight: 300; }
-  .btn-wa {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: #25D366; color: #fff; font-weight: 600; font-size: 0.92rem;
-    padding: 0.75rem 1.7rem; border-radius: 3px; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 3px 18px rgba(37,211,102,0.28);
-  }
-  .btn-wa:hover { background: #20bd5a; transform: translateY(-1px); }
-  .btn-email {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: transparent; color: var(--brass-light); font-weight: 600; font-size: 0.88rem;
-    padding: 0.75rem 1.5rem; border-radius: 3px; text-decoration: none;
-    border: 1px solid rgba(196,149,42,0.3);
-    transition: border-color 0.2s, color 0.2s, transform 0.15s; margin-top: 0.75rem;
-    display: flex;
-  }
-  .btn-email:hover { border-color: var(--brass); color: var(--brass-light); transform: translateY(-1px); }
-
-  /* ── FOOTER ── */
-  footer { background: var(--bark-950); border-top: 1px solid rgba(196,149,42,0.1); padding: 2.5rem 1.5rem; }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-  }
-  .footer-logo { font-family: 'Oswald', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: #fff; font-weight: 600; }
-  .footer-logo span { color: var(--brass); }
-  .footer-copy { color: #4a3d30; font-size: 0.78rem; }
-  .footer-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
-  .footer-links a { color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--brass-light); }
-
-  /* ── FLOATING WA ── */
-  .wa-float {
-    position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
-    width: 60px; height: 60px; border-radius: 50%;
-    background: #25D366; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 2px 8px rgba(0,0,0,0.25);
-    animation: wa-pulse 2.5s ease-in-out infinite; text-decoration: none;
-  }
-  @keyframes wa-pulse {
-    0%,100% { transform: scale(1); box-shadow: 0 4px 20px rgba(37,211,102,0.5), 0 2px 8px rgba(0,0,0,0.2); }
-    50% { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.7), 0 2px 12px rgba(0,0,0,0.25); }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .nosotros-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .nosotros-photo { height: 300px; }
-    .hero-stats { gap: 1.5rem; }
-    .nav-phone { display: none; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Residencia canina en Madrid — Shere Can by Thunder Bully. Finca de 5.800m², 50 boxes, cría de American Staffordshire Terrier, Staffordshire Bull Terrier y American Bully. Afijo FCI Thunder Bully. Desde 1990.">
+  <meta name="keywords" content="residencia canina madrid, criadero american staffordshire terrier, american bully, staffordshire bull terrier, thunder bully, handler exposiciones caninas, shere can, manolín el perrero">
+  <title>Residencia Canina en Madrid | Shere Can · Thunder Bully</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a class="logo" href="#">
-      SHERE CAN
-      <span class="logo-sub">Thunder Bully · Desde 1990</span>
-    </a>
-    <div class="nav-right">
-      <a class="nav-phone" href="tel:+34639291714">639 29 17 14</a>
-      <a class="btn-primary" href="https://wa.me/34639291714">Contactar</a>
-    </div>
-  </div>
-</nav>
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/34639291714?text=Hola,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20residencia%20y%20cria%20de%20Shere%20Can." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp">
+    <svg viewBox="0 0 448 512">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-since">Madrid · Desde 1990 · 4,1★ Google</div>
-    <h1 class="hero-title">Residencia<br>canina en<br><em>Madrid</em></h1>
-    <p class="hero-sub">Criadero y residencia de American Staffordshire Terrier y American Bully. Manuel y su familia cuidan a tu perro como si fuera el suyo.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://wa.me/34639291714">Reservar plaza</a>
-      <a class="btn-outline" href="#servicios">Ver servicios</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">1990</span>
-        <span class="stat-label">Año de inicio</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">5.800m²</span>
-        <span class="stat-label">Finca en el campo</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">50</span>
-        <span class="stat-label">Boxes disponibles</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo" aria-label="Shere Can Inicio">
+        <svg viewBox="0 0 576 512">
+          <path d="M288 48C205.2 48 144 109.2 144 192c0 52.8 28.3 99.4 70.9 125.8C162.8 327 128 358.2 128 400c0 17.7 14.3 32 32 32s32-14.3 32-32c0-22.1 41.9-48 96-48s96 25.9 96 48c0 17.7 14.3 32 32 32s32-14.3 32-32c0-41.8-34.8-73-86.9-82.2C373.7 291.4 432 244.8 432 192 432 109.2 370.8 48 288 48zm-64 144c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zm128 0c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zM112 160c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm352 0c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"/>
+        </svg>
+        <span>Shere Can</span>
+      </a>
 
-<!-- SERVICIOS -->
-<section id="servicios">
-  <div class="section-inner">
-    <div class="section-tag">Lo que ofrecemos</div>
-    <h2 class="section-title">Servicios</h2>
-    <p class="section-desc">Residencia con trato personalizado, cría responsable con afijo reconocido mundialmente y handling profesional en exposiciones.</p>
-    <div class="services-grid">
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Inicio</a></li>
+        <li><a href="#about" class="nav-link">Nosotros</a></li>
+        <li><a href="#services" class="nav-link">Servicios</a></li>
+        <li><a href="#comparison" class="nav-link">Comparativa</a></li>
+        <li><a href="#quiz" class="nav-link">Consultor</a></li>
+        <li><a href="#calculator" class="nav-link">Calculadora</a></li>
+        <li><a href="#contact" class="nav-link">Contacto</a></li>
+      </ul>
 
-      <div class="service-card">
-        <img class="service-photo" src="residencia.webp" alt="Residencia canina">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4952a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Cambiar tema de color">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <a href="https://wa.me/34639291714?text=Hola,%20quiero%20reservar%20una%20plaza%20en%20Shere%20Can." class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;" target="_blank" rel="noopener noreferrer">Reservar plaza</a>
+        <button class="menu-toggle" aria-label="Abrir menú de navegación">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <svg viewBox="0 0 512 512"><path d="M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512 0 397.4 0 256 114.6 0 256 0zM375 199c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-145 145-65-65c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l82 82c9.4 9.4 24.6 9.4 33.9 0L375 199z"/></svg>
+            <span>Desde 1990</span>
           </div>
-          <h3 class="service-title">Residencia Canina</h3>
-          <p class="service-desc">5.800m² en plena naturaleza para que tu perro esté cómodo, activo y bien atendido. Estancias temporales o permanentes con trato familiar y dieta personalizada.</p>
+          <div class="hero-badge">
+            <svg viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+            <span>Criadero de élite</span>
+          </div>
+        </div>
+        <h1>Residencia canina en <span class="highlight">Madrid</span></h1>
+        <p class="hero-desc">Manuel — "Manolín el Perrero" — lleva desde 1990 criando y cuidando perros en una finca de 5.800m² al norte de Madrid. Cría y selección de AmStaff, Staffordshire Bull Terrier y American Bully bajo el afijo Thunder Bully, reconocido mundialmente.</p>
+        <div class="hero-cta">
+          <a href="https://wa.me/34639291714?text=Hola,%20quiero%20reservar%20una%20plaza%20en%20la%20residencia." class="btn btn-accent" target="_blank" rel="noopener noreferrer">Reservar plaza</a>
+          <a href="#comparison" class="btn btn-secondary">Ver instalaciones</a>
         </div>
       </div>
-
-      <div class="service-card">
-        <img class="service-photo" src="adiestramiento.webp" alt="Cría y selección">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4952a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      <div class="hero-image-wrapper">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=900&q=80" alt="Ejemplar de American Bully de tipo muscular en la finca Shere Can" class="hero-img">
+        <div class="hero-card hero-card-1">
+          <div class="hero-card-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
           </div>
-          <h3 class="service-title">Cría y Selección</h3>
-          <p class="service-desc">Camadas de American Staffordshire Terrier, Staffordshire Bull Terrier y American Bully bajo el afijo Thunder Bully, reconocido en todo el mundo. Selección rigurosa de carácter y morfología.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img class="service-photo" src="peluqueria.webp" alt="Handling y exposiciones">
-        <div class="service-body">
-          <div class="service-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4952a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div class="hero-card-text">
+            <h4>50 boxes</h4>
+            <p>Finca de 5.800m²</p>
           </div>
-          <h3 class="service-title">Handling & Exposiciones</h3>
-          <p class="service-desc">Handler profesional en certámenes nacionales e internacionales. Preparación y presentación de ejemplares en ring con la experiencia de décadas de títulos conseguidos.</p>
         </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- RESEÑAS -->
-<section id="resenas">
-  <div class="section-inner">
-    <div class="section-tag">Lo que dicen</div>
-    <h2 class="section-title">Opiniones en Google</h2>
-  </div>
-  <div class="reviews-track-wrapper">
-    <div class="reviews-track">
-      <!-- Set 1 -->
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">javi sanchez</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Única sin palabras, residencia top. Manolo eres increíble con los perros."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Pachy Garcia</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Siempre hemos dejado allí a nuestros 3 perros y adoran a Manolo. Les cuesta volver con nosotros. Les trata como si fuesen parte de su familia."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Víctor G</div>
-        <div class="review-source">Google Maps</div>
-        <p class="review-text">"Manolo es un excelente profesional. Residencia totalmente recomendada por su calidad y trato a los perros. Tiene unos ejemplares increíbles para venta."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Jordi Recio Sanz</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"El trato de Manuel y su familia siempre es maravilloso. A nuestros perros les encanta. Siempre vienen felices."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Iskra Nava Hernandez</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Un lugar muy profesional. Excelente cuidado de los perros. Muy amable todo el personal."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Ariza Benito</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Cogimos a nuestra perrita a Manuel y todo fenomenal. Atención perfecta en todo momento. Proceso rápido y transparente."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Alejandro Guerrero</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Todo perfecto, muchas gracias."</p>
-      </div>
-      <!-- Set 2 duplicate -->
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">javi sanchez</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Única sin palabras, residencia top. Manolo eres increíble con los perros."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Pachy Garcia</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Siempre hemos dejado allí a nuestros 3 perros y adoran a Manolo. Les cuesta volver con nosotros. Les trata como si fuesen parte de su familia."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Víctor G</div>
-        <div class="review-source">Google Maps</div>
-        <p class="review-text">"Manolo es un excelente profesional. Residencia totalmente recomendada por su calidad y trato a los perros. Tiene unos ejemplares increíbles para venta."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Jordi Recio Sanz</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"El trato de Manuel y su familia siempre es maravilloso. A nuestros perros les encanta. Siempre vienen felices."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Iskra Nava Hernandez</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Un lugar muy profesional. Excelente cuidado de los perros. Muy amable todo el personal."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Ariza Benito</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Cogimos a nuestra perrita a Manuel y todo fenomenal. Atención perfecta en todo momento. Proceso rápido y transparente."</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <div class="reviewer-name">Alejandro Guerrero</div>
-        <div class="review-source">Google Maps · Local Guide</div>
-        <p class="review-text">"Todo perfecto, muchas gracias."</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NOSOTROS -->
-<section id="nosotros">
-  <div class="section-inner">
-    <div class="nosotros-grid">
-      <div class="nosotros-photo-wrap">
-        <img class="nosotros-photo" src="hero.webp" alt="Manuel, Thunder Bully Kennel desde 1990">
-      </div>
-      <div class="nosotros-content">
-        <div class="section-tag">Quiénes somos</div>
-        <h3>Manuel,<br>Manolín<br>el Perrero</h3>
-        <p>Desde que tengo uso de razón, mi vida está relacionada con los perros. De pequeño cuidaba a los vagabundos del barrio —de ahí mi apodo. Ese día quedó claro que esto era para siempre.</p>
-        <p>Hoy, después de décadas de cría y selección, el afijo Thunder Bully es conocido en todo el mundo. Hemos participado en programas como <em>Comando Actualidad</em>, presentado ejemplares en rings nacionales e internacionales y visto cómo nuestros perros cambian la vida de cientos de familias.</p>
-        <p>La residencia nació de esa misma filosofía: que cada perro que entre aquí se sienta en casa, no en un negocio.</p>
-        <div class="nosotros-badges">
-          <span class="badge">Desde 1990</span>
-          <span class="badge">AmStaff</span>
-          <span class="badge">American Bully</span>
-          <span class="badge">Staff Bull Terrier</span>
-          <span class="badge">Afijo mundial</span>
-          <span class="badge">Handling profesional</span>
+        <div class="hero-card hero-card-2">
+          <div class="hero-card-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="hero-card-text">
+            <h4>Desde 1990</h4>
+            <p>Afijo mundial</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- MAPA -->
-<section id="mapa">
-  <div class="section-inner">
-    <div class="section-tag">Dónde estamos</div>
-    <h2 class="section-title">Norte de Madrid</h2>
-    <iframe
-      class="mapa-iframe"
-      src="https://maps.google.com/maps?cid=12417949452825161009&output=embed"
-      allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Shere Can by Thunder Bully en Google Maps">
-    </iframe>
-  </div>
-</section>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80" alt="Manuel cuidando perros en la finca Shere Can, Madrid" class="about-img">
+      <div class="about-content">
+        <span class="section-tag">Conócenos</span>
+        <h2>Criamos desde la <span class="highlight">pasión y la experiencia</span></h2>
+        <p>De pequeño, en el barrio de Moratalaz, Manuel cuidaba a los perros vagabundos del vecindario. El apodo "Manolín el Perrero" le vino solo. Desde 1990 ha dedicado su vida a criar y seleccionar American Staffordshire Terrier, Staffordshire Bull Terrier y American Bully bajo el afijo <strong>Thunder Bully</strong>, reconocido en el mundo entero.</p>
+        <p>Su historia y su finca llegaron a las pantallas de TVE en el programa <strong>Comando Actualidad</strong>. Hoy, desde la Urb. La Escarabajosa, al norte de Madrid, continúa haciendo lo mismo que siempre: querer a los perros como a su familia.</p>
+        <div class="about-bullets">
+          <div class="about-item">
+            <div class="about-item-icon">
+              <svg viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+            </div>
+            <div class="about-item-text">
+              <h4>Sin Intermediarios ni Tiendas</h4>
+              <p>Vendemos directamente a las familias con seguimiento completo y apoyo de por vida.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="about-item-icon">
+              <svg viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+            </div>
+            <div class="about-item-text">
+              <h4>Selección Genética Rigurosa</h4>
+              <p>Pruebas de salud completas, selección de carácter y morfología exigente bajo los estándares FCI.</p>
+            </div>
+          </div>
+          <div class="about-item">
+            <div class="about-item-icon">
+              <svg viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+            </div>
+            <div class="about-item-text">
+              <h4>Residencia como Extensión de Casa</h4>
+              <p>Cada perro recibe atención personalizada igual que los nuestros. Manuel y su familia, siempre presentes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <div class="section-inner">
-    <div class="section-tag">Escríbenos</div>
-    <h2 class="section-title">Reserva tu plaza</h2>
-    <div class="contact-grid">
-      <div>
-        <a class="contact-item" href="tel:+34639291714">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4952a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestros Servicios</span>
+        <h2>Servicios para tu <span class="highlight">mejor compañero</span></h2>
+        <p>Desde el cuidado temporal de tu perro en nuestra finca hasta la cría seleccionada de razas de élite y el handling profesional en exposiciones nacionales e internacionales.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=700&q=80" alt="Perros disfrutando en los prados de la finca Shere Can" class="service-img">
+            <span class="service-tag">Popular</span>
           </div>
-          <div>
-            <div class="contact-label">Teléfono</div>
-            <div class="contact-value">639 29 17 14</div>
+          <div class="service-content">
+            <h3>Residencia Canina</h3>
+            <p>Estancias temporales o permanentes en 5.800m² de naturaleza abierta. 50 boxes individuales climatizados, dieta personalizada, acceso diario a los prados y trato familiar de Manuel y los suyos.</p>
+            <div class="service-cta-footer">
+              <a href="https://wa.me/34639291714?text=Hola,%20quiero%20información%20sobre%20la%20residencia%20canina." class="btn btn-primary service-btn" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+            </div>
           </div>
-        </a>
-        <a class="contact-item" href="https://wa.me/34639291714">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#c4952a"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.989.524 3.859 1.441 5.472L2 22l4.648-1.42A9.942 9.942 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a8 8 0 01-4.08-1.12l-.293-.174-3.037.929.893-3.08-.19-.31A8 8 0 1112 20z"/></svg>
+        </article>
+        <article class="service-card">
+          <div class="service-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1546238232-20216dec9f72?auto=format&fit=crop&w=700&q=80" alt="Cachorros de American Bully nacidos en Shere Can" class="service-img">
           </div>
-          <div>
-            <div class="contact-label">WhatsApp</div>
-            <div class="contact-value">Escríbenos ahora</div>
+          <div class="service-content">
+            <h3>Cría y Selección</h3>
+            <p>American Staffordshire Terrier, Staffordshire Bull Terrier y American Bully bajo el afijo Thunder Bully, reconocido mundialmente. Rigurosa selección de carácter y morfología con pruebas de salud completas e inscritos en el LOE con afijo FCI.</p>
+            <div class="service-cta-footer">
+              <a href="https://wa.me/34639291714?text=Hola,%20me%20interesa%20información%20sobre%20cachorros%20disponibles." class="btn btn-primary service-btn" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+            </div>
           </div>
-        </a>
-        <a class="contact-item" href="mailto:thunderbully@hotmail.com">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4952a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </article>
+        <article class="service-card">
+          <div class="service-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=700&q=80" alt="Perro en exposición canina con handler profesional" class="service-img">
           </div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value">thunderbully@hotmail.com</div>
+          <div class="service-content">
+            <h3>Handling &amp; Exposiciones</h3>
+            <p>Handler profesional en certámenes nacionales e internacionales. Décadas de títulos conseguidos. Preparación, presentación y asesoramiento completo para llevar a tu ejemplar al ring en las mejores condiciones.</p>
+            <div class="service-cta-footer">
+              <a href="https://wa.me/34639291714?text=Hola,%20me%20interesa%20el%20servicio%20de%20handling%20para%20exposiciones." class="btn btn-primary service-btn" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+            </div>
           </div>
-        </a>
-        <div class="contact-item" style="cursor:default;">
-          <div class="contact-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4952a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After Slider Section -->
+  <section id="comparison" class="slider-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestras Instalaciones</span>
+        <h2>Nuestra finca: <span class="highlight">espacio y libertad</span></h2>
+        <p>Desliza para ver cómo viven nuestros huéspedes en más de 5.800m² de naturaleza abierta comparado con las instalaciones interiores.</p>
+      </div>
+      <div class="slider-container">
+        <div class="comparison-slider">
+          <img src="https://images.unsplash.com/photo-1621963984700-1fd5d1f5e66c?auto=format&fit=crop&w=900&q=80" alt="Perro disfrutando en los prados exteriores de Shere Can" class="image-before">
+          <img src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?auto=format&fit=crop&w=900&q=80" alt="Perro descansando en box interior climatizado" class="image-after">
+          <span class="slider-label label-before">Prados exteriores</span>
+          <span class="slider-label label-after">Boxes interiores</span>
+          <div class="slider-handle">
+            <div class="slider-handle-button">
+              <svg viewBox="0 0 24 24"><path d="M6.99 8L3 12l3.99 4V13H17v3l4-4-4-4v3H6.99z"/></svg>
+            </div>
           </div>
-          <div>
-            <div class="contact-label">Horario</div>
-            <div class="contact-value" style="font-size:0.82rem;">L-V 10:30–14:00 / 17:30–19:30 · Sáb 11:00–14:00</div>
+        </div>
+        <div class="slider-info">
+          <div class="slider-info-col">
+            <h4>Boxes individuales clima</h4>
+            <p>Cada perro tiene su espacio propio con temperatura regulada y zona de descanso cómoda.</p>
+          </div>
+          <div class="slider-info-col">
+            <h4>5.800m² de campo abierto</h4>
+            <p>Amplios prados para correr, explorar y socializar bajo supervisión constante de Manuel y su familia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Advisor Quiz Section -->
+  <section id="quiz" class="quiz-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Consultor Gratuito</span>
+        <h2>¿Qué <span class="highlight">servicio necesitas?</span></h2>
+        <p>Responde 4 preguntas y te diremos qué servicio se adapta mejor a tu perro.</p>
+      </div>
+      <div class="quiz-wrapper">
+        <div class="quiz-progress-container">
+          <div class="quiz-progress-bar">
+            <div id="progress-fill" class="quiz-progress-fill"></div>
+          </div>
+          <span id="step-count" class="quiz-step-count">Paso 1 de 4</span>
+        </div>
+        <div class="quiz-body">
+          <div id="quiz-step" class="quiz-step active">
+            <h3 id="quiz-question" class="quiz-question">Cargando pregunta...</h3>
+            <div id="quiz-options" class="quiz-options"></div>
+          </div>
+          <div id="quiz-result" class="quiz-result">
+            <div class="result-badge-icon">
+              <svg viewBox="0 0 576 512">
+                <path d="M288 48C205.2 48 144 109.2 144 192c0 52.8 28.3 99.4 70.9 125.8C162.8 327 128 358.2 128 400c0 17.7 14.3 32 32 32s32-14.3 32-32c0-22.1 41.9-48 96-48s96 25.9 96 48c0 17.7 14.3 32 32 32s32-14.3 32-32c0-41.8-34.8-73-86.9-82.2C373.7 291.4 432 244.8 432 192 432 109.2 370.8 48 288 48zm-64 144c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zm128 0c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32z"/>
+              </svg>
+            </div>
+            <h3 id="result-title" class="result-title">Analizando tus respuestas...</h3>
+            <p id="result-desc" class="result-desc">Estamos calculando la mejor opción para ti y tu perro.</p>
+            <div class="result-recommendation">
+              <h4 id="rec-title" class="result-rec-title">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Servicio sugerido
+              </h4>
+              <p id="rec-desc">Detalles del servicio sugerido...</p>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+              <button id="btn-restart" class="btn btn-secondary">Repetir Consultor</button>
+              <a id="btn-whatsapp-result" href="https://wa.me/34639291714?text=Hola,%20el%20consultor%20me%20ha%20recomendado%20un%20servicio%20y%20quiero%20más%20información." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-footer">
+          <button id="btn-prev" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Atrás</button>
+          <button id="btn-next" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Siguiente</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Boarding Calculator Section -->
+  <section id="calculator" class="calc-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Calculadora de Estancia</span>
+        <h2>Calcula el <span class="highlight">coste de la estancia</span></h2>
+        <p>Configura el número de perros, las noches y los extras para obtener una estimación transparente del coste de la residencia.</p>
+      </div>
+      <div class="calc-grid">
+        <div class="calc-card">
+          <div class="calc-group">
+            <label class="calc-label">1. Número de perros</label>
+            <div class="calc-packages">
+              <div id="pkg-1dog" class="package-pill selected">
+                <h4>1 Perro</h4>
+                <p>15€ / noche</p>
+              </div>
+              <div id="pkg-2dogs" class="package-pill">
+                <h4>2 Perros</h4>
+                <p>13€ / noche / perro</p>
+              </div>
+              <div id="pkg-3dogs" class="package-pill">
+                <h4>3 o más perros</h4>
+                <p>11€ / noche / perro</p>
+              </div>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label class="calc-label">
+              <span>2. Número de noches</span>
+              <span id="session-count-val">7</span>
+            </label>
+            <div class="slider-wrapper">
+              <input type="range" id="range-sessions" class="range-input" min="1" max="30" value="7" step="1" aria-label="Número de noches de estancia">
+              <div class="range-labels">
+                <span>1 noche (mínimo)</span>
+                <span>30 noches</span>
+              </div>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label class="calc-label">3. Servicios adicionales</label>
+            <div class="add-ons-list">
+              <div id="addon-bano" class="addon-item">
+                <div class="addon-left">
+                  <div class="addon-checkbox">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </div>
+                  <div>
+                    <span class="addon-name">Baño y aseo incluido</span>
+                    <p style="font-size: 0.75rem;">Tu perro sale limpio y bien arreglado.</p>
+                  </div>
+                </div>
+                <span class="addon-price">+35€</span>
+              </div>
+              <div id="addon-fotos" class="addon-item addon-free">
+                <div class="addon-left">
+                  <div class="addon-checkbox addon-checkbox-free">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </div>
+                  <div>
+                    <span class="addon-name">Reporte diario con fotos por WhatsApp</span>
+                    <p style="font-size: 0.75rem;">Incluido de forma gratuita en todas las estancias.</p>
+                  </div>
+                </div>
+                <span class="addon-price addon-price-free">¡Gratis!</span>
+              </div>
+              <div id="addon-recogida" class="addon-item">
+                <div class="addon-left">
+                  <div class="addon-checkbox">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </div>
+                  <div>
+                    <span class="addon-name">Recogida/entrega a domicilio (Madrid)</span>
+                    <p style="font-size: 0.75rem;">Recogemos y entregamos en tu domicilio en Madrid.</p>
+                  </div>
+                </div>
+                <span class="addon-price">+40€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <h3 class="calc-summary-title">Resumen de Estancia</h3>
+          <div class="calc-summary-items">
+            <div class="summary-row">
+              <span>Programa</span>
+              <span id="summary-package-name">1 Perro</span>
+            </div>
+            <div class="summary-row">
+              <span>Precio por noche</span>
+              <span id="summary-package-price">15€ / noche</span>
+            </div>
+            <div class="summary-row">
+              <span>Noches</span>
+              <span id="summary-sessions-count">7 noches</span>
+            </div>
+            <div class="summary-row">
+              <span>Subtotal alojamiento</span>
+              <span id="summary-sessions-price">105€</span>
+            </div>
+            <div class="summary-row">
+              <span>Servicios extra</span>
+              <span id="summary-addons-list" style="max-width: 200px; text-align: right; line-height: 1.3;">Ninguno</span>
+            </div>
+            <div class="summary-row">
+              <span>Coste extras</span>
+              <span id="summary-addons-price">+0€</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total Estimado</span>
+              <span id="summary-total-price">105€</span>
+            </div>
+          </div>
+          <a href="https://wa.me/34639291714?text=Hola,%20quiero%20consultar%20disponibilidad%20en%20la%20residencia." class="btn btn-accent" style="width: 100%; text-align: center; display: flex; justify-content: center;" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Reseñas</span>
+        <h2>Lo que dicen quienes <span class="highlight">nos confían sus perros</span></h2>
+        <p>Familias reales que dejaron a sus perros con Manuel y volvieron con una sonrisa.</p>
+      </div>
+      <div class="reviews-slider">
+        <div class="reviews-track">
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <p class="review-text">"Única sin palabras, residencia top. Manolo eres increíble con los perros."</p>
+              <div class="review-author">
+                <div class="review-author-avatar">JS</div>
+                <div class="review-author-info">
+                  <h4>javi sanchez</h4>
+                  <p>Reseña de Google Maps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <p class="review-text">"Siempre hemos dejado allí a nuestros 3 perros y adoran a Manolo. Les cuesta volver con nosotros. Les trata como si fuesen parte de su familia."</p>
+              <div class="review-author">
+                <div class="review-author-avatar">PG</div>
+                <div class="review-author-info">
+                  <h4>Pachy Garcia</h4>
+                  <p>Reseña de Google Maps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <p class="review-text">"Manolo es un excelente profesional. Residencia totalmente recomendada por su calidad y trato a los perros. Tiene unos ejemplares increíbles para venta."</p>
+              <div class="review-author">
+                <div class="review-author-avatar">VG</div>
+                <div class="review-author-info">
+                  <h4>Víctor G</h4>
+                  <p>Reseña de Google Maps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <p class="review-text">"El trato de Manuel y su familia siempre es maravilloso. A nuestros perros les encanta. Siempre vienen felices."</p>
+              <div class="review-author">
+                <div class="review-author-avatar">JR</div>
+                <div class="review-author-info">
+                  <h4>Jordi Recio Sanz</h4>
+                  <p>Reseña de Google Maps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <p class="review-text">"Un lugar muy profesional. Excelente cuidado de los perros. Muy amable todo el personal."</p>
+              <div class="review-author">
+                <div class="review-author-avatar">IN</div>
+                <div class="review-author-info">
+                  <h4>Iskra Nava Hernandez</h4>
+                  <p>Reseña de Google Maps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <p class="review-text">"Cogimos a nuestra perrita a Manuel y todo fenomenal. Atención perfecta en todo momento. Proceso rápido y transparente."</p>
+              <div class="review-author">
+                <div class="review-author-avatar">AB</div>
+                <div class="review-author-info">
+                  <h4>Ariza Benito</h4>
+                  <p>Reseña de Google Maps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-nav"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Preguntas Frecuentes</span>
+        <h2>Resolvemos tus <span class="highlight">dudas habituales</span></h2>
+        <p>Aquí respondemos las preguntas más comunes sobre la residencia, los cachorros y el handling.</p>
+      </div>
+      <div class="faq-wrapper">
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿Qué incluye la estancia en la residencia?</span>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              <p>La estancia incluye alojamiento en box individual climatizado, acceso diario a los prados de 5.800m², alimentación de calidad, supervisión 24h por Manuel y su familia, y reporte diario por WhatsApp con fotos de tu perro.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿Cómo son los cachorros que vendéis?</span>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              <p>Todos nuestros cachorros nacen y se crían en casa, con socialización desde el primer día. Los padres tienen pruebas de salud completas y están inscritos en el LOE con afijo FCI Thunder Bully. Cada cachorro sale con cartilla vacunal, desparasitado y con seguimiento de por vida.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿Aceptáis todas las razas en la residencia?</span>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              <p>Sí, aceptamos perros de todas las razas y tamaños. Nuestra experiencia con los Bully nos ha dado una comprensión profunda del comportamiento canino que aplicamos a cada huésped, sea cual sea su raza.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>¿Puedo visitar las instalaciones antes de dejar a mi perro?</span>
+            <div class="faq-icon">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </div>
+          </div>
+          <div class="faq-body">
+            <div class="faq-content">
+              <p>Por supuesto, y lo recomendamos. Llámanos o escríbenos por WhatsApp para concertar una visita sin compromiso. Verás por ti mismo cómo viven los perros y podrás conocer a Manuel y su familia antes de tomar ninguna decisión.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <div>
+          <span class="section-tag">Contacto</span>
+          <h2>¿Hablamos sobre <span class="highlight">tu perro?</span></h2>
+          <p>Escríbenos o llámanos sin compromiso. Te respondemos encantados para resolver cualquier duda sobre la residencia, los cachorros disponibles o el servicio de handling.</p>
+        </div>
+        <div class="contact-details">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <div class="contact-text">
+              <h4>Teléfono / WhatsApp</h4>
+              <p><a href="tel:+34639291714">+34 639 29 17 14</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            </div>
+            <div class="contact-text">
+              <h4>WhatsApp directo</h4>
+              <p><a href="https://wa.me/34639291714" target="_blank" rel="noopener noreferrer">wa.me/34639291714</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p><a href="mailto:thunderbully@hotmail.com">thunderbully@hotmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div class="contact-text">
+              <h4>Dirección</h4>
+              <p>Urb. La Escarabajosa, 28140 Madrid</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </div>
+            <div class="contact-text">
+              <h4>Horario</h4>
+              <p>L–V 10:30–14:00 / 17:30–19:30<br>Sáb 11:00–14:00</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="contact-cta">
-        <h3>Consulta sin compromiso</h3>
-        <p>Cuéntanos qué necesitas — plaza en residencia, información sobre camadas disponibles o preparación para exposiciones. Manuel te responde personalmente.</p>
-        <a class="btn-wa" href="https://wa.me/34639291714?text=Hola%20Manuel%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20info%20sobre%20la%20residencia.">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.989.524 3.859 1.441 5.472L2 22l4.648-1.42A9.942 9.942 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a8 8 0 01-4.08-1.12l-.293-.174-3.037.929.893-3.08-.19-.31A8 8 0 1112 20z"/></svg>
-          Contactar por WhatsApp
-        </a>
-        <a class="btn-email" href="mailto:thunderbully@hotmail.com">thunderbully@hotmail.com</a>
+      <div class="contact-form-card">
+        <div id="form-status" class="form-status"></div>
+        <form id="contact-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Nombre Completo *</label>
+              <input type="text" id="name" class="form-control" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo Electrónico *</label>
+              <input type="email" id="email" class="form-control" placeholder="tuemail@correo.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono de Contacto</label>
+              <input type="tel" id="phone" class="form-control" placeholder="600 000 000">
+            </div>
+            <div class="form-group">
+              <label for="dog-breed">Raza / Edad del perro</label>
+              <input type="text" id="dog-breed" class="form-control" placeholder="Ej: American Bully / 2 años">
+            </div>
+            <div class="form-group full-width">
+              <label for="message">Mensaje / Comentarios *</label>
+              <textarea id="message" class="form-control" placeholder="Cuéntanos sobre tu perro y qué servicio necesitas (residencia, cachorro, handling)..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+        </form>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo"><span>SHERE</span> CAN · Thunder Bully</div>
-    <div class="footer-links">
-      <a href="tel:+34639291714">639 29 17 14</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#nosotros">Quiénes somos</a>
-      <a href="#contacto">Contacto</a>
+    <div class="container">
+      <iframe
+        src="https://maps.google.com/maps?cid=12417949452825161009&output=embed"
+        width="100%"
+        height="380"
+        style="border: 0; border-radius: var(--radius-lg); display: block; margin-top: 4rem;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa de Shere Can · Thunder Bully — Urb. La Escarabajosa, Madrid">
+      </iframe>
     </div>
-    <div class="footer-copy">© 2025 Shere Can · Thunder Bully Kennel · Madrid</div>
-  </div>
-</footer>
+  </section>
 
-<!-- FLOATING WA -->
-<a class="wa-float" href="https://wa.me/34639291714" aria-label="WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.989.524 3.859 1.441 5.472L2 22l4.648-1.42A9.942 9.942 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18a8 8 0 01-4.08-1.12l-.293-.174-3.037.929.893-3.08-.19-.31A8 8 0 1112 20z"/></svg>
-</a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <a href="#home" class="logo footer-logo" aria-label="Shere Can Inicio">
+        <svg viewBox="0 0 576 512">
+          <path d="M288 48C205.2 48 144 109.2 144 192c0 52.8 28.3 99.4 70.9 125.8C162.8 327 128 358.2 128 400c0 17.7 14.3 32 32 32s32-14.3 32-32c0-22.1 41.9-48 96-48s96 25.9 96 48c0 17.7 14.3 32 32 32s32-14.3 32-32c0-41.8-34.8-73-86.9-82.2C373.7 291.4 432 244.8 432 192 432 109.2 370.8 48 288 48zm-64 144c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zm128 0c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zM112 160c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm352 0c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"/>
+        </svg>
+        <span>Shere Can · Thunder Bully</span>
+      </a>
+      <p>&copy; 2025 Shere Can · Thunder Bully Kennel · Madrid</p>
+      <ul class="footer-nav">
+        <li><a href="#home" class="footer-link">Inicio</a></li>
+        <li><a href="#about" class="footer-link">Nosotros</a></li>
+        <li><a href="#services" class="footer-link">Servicios</a></li>
+        <li><a href="#contact" class="footer-link">Contacto</a></li>
+      </ul>
+    </div>
+  </footer>
 
+  <script src="app.js"></script>
 </body>
 </html>
